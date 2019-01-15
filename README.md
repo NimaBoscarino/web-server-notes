@@ -1,5 +1,7 @@
 # Web Servers 101
 
+REPO: https://github.com/NimaBoscarino/web-server-notes
+
 ### As always, remember to read the documentation!
 
 Here are some starting resources:
