@@ -1,38 +1,39 @@
 var http = require('http')
 var fs = require('fs')
-var homePage = fs.readFileSync('index.html')
-var dogPage = fs.readFileSync('dogs.html')
 
-const port = 3000
-const randomObject = {
-  a: 1,
-  b: 2,
-  c: 3
-}
+var server = http.createServer(function (request, response) {
+  // console.log(request) -- METHOD (e.g. POST, GET), URL ('/', '/dogs'), HEADERS, PARAMETERS
 
-function handleRequest (request, response) {
-  if (request.url === '/' && request.method === 'GET') {
-    response.statusCode = 200
-    response.setHeader('Content-Type', 'text/html')
-    response.end(homePage)
-  } else if (request.url === '/dogs' && request.method === 'GET') {
-    response.statusCode = 200
-    response.setHeader('Content-Type', 'text/html')
-    response.end(dogPage)
-  } else if (request.url === '/someJSON' && request.method === 'POST') {
-    response.statusCode = 200
-    response.setHeader('Content-Type', 'application/json') // try commenting this line out
-    response.end(JSON.stringify(randomObject))
+  console.log(request.method)
+
+  if (request.method === 'GET') {
+    if (request.url === '/') {
+      console.log('REQUEST TO ROOT')
+      response.statusCode = 200
+      response.end('ROOT')
+    } else if (request.url === '/dogs') {
+      response.statusCode = 200
+      var dogsPage = fs.readFileSync('dogs.html')
+      response.setHeader("Content-Type", "text/html")
+      response.end(dogsPage)
+    } else {
+      response.statusCode = 200
+      response.setHeader("Content-Type", "application/json")
+      response.end(JSON.stringify({
+        name: 'Kanye',
+        music: 'The Best'
+      }))
+    }
   } else {
-    response.statusCode = 200
-    response.end('Other page')
+    response.statusCode = 418
+    response.end("I AM A TEAPOT!")
   }
-}
 
-function bootUp () {
-  console.log('Booted up!')
-}
+})
 
-var server = http.createServer(handleRequest)
+var port = 1337
+server.listen(1337, function () {
+  console.log('I AM LISTENING ON 1337')
+})
 
-server.listen(port, bootUp)
+

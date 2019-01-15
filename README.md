@@ -1,15 +1,19 @@
 # Web Servers 101
 
 ### As always, remember to read the documentation!
+
 Here are some starting resources:
-1) [Express: Getting Started](https://expressjs.com/en/starter/installing.html) 
-2) [Routing with Express.js](https://expressjs.com/en/guide/routing.html) 
-3) [EJS templating](http://ejs.co/)
-4) [What is Express Middleware?](https://expressjs.com/en/guide/using-middleware.html)
-5) [How do I write middleware?](https://expressjs.com/en/guide/writing-middleware.html)
+
+1. [Express: Getting Started](https://expressjs.com/en/starter/installing.html) 
+2. [Routing with Express.js](https://expressjs.com/en/guide/routing.html) 
+3. [EJS templating](http://ejs.co/)
+4. [What is Express Middleware?](https://expressjs.com/en/guide/using-middleware.html)
+5. [How do I write middleware?](https://expressjs.com/en/guide/writing-middleware.html)
+6. [Anatomy of an HTTP Transaction](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/)
+7. [Using EJS with Express](https://github.com/mde/ejs/wiki/Using-EJS-with-Express)
 
 -----
-Let's star off with a bit of HTTP review.
+Let's start off with a bit of HTTP review.
 
 HTTP: Hypertext transfer protocol
 
@@ -43,7 +47,7 @@ app.get('/people/:id', function(req, res) {
 })
 ```
 
-Take a look at the `ExpressDemo` folder for more examples.
+Take a look at the `express_demo` folder for more examples.
 
 Often we'll want our web servers to return HTML pages containing that might have been pulled from a database, another API, etc. In these cases, we'd like to have a **"template"** system that lets us specify the general form of certain web pages (e.g. a profile page) which we can fill in with the required data.
 
@@ -58,9 +62,7 @@ Let's consider a Wikipedia article page. This page requires data (title, images,
             - edit status (e.g. locked, open)
         ---> RETURNS AN HTML FILE EVENTUALLY
     
-The template engine we're using is EJS. EJS lets us embed arbitrary Javascript expressions, and it also lets up easily pass in template variables into the render function. Again, take a look at the `ExpressDemo` folder for examples. And look at the documentation!!
-
-There's also some things that I didn't cover, such as using the `fs` module to display html files when using `http` instead of `express`. If you're interested in that, please take a look at other lecture notes by instructors like Don Burks (found on Compass).
+The template engine we're using is EJS. EJS lets us embed arbitrary Javascript expressions, and it also lets up easily pass in template variables into the render function. Again, take a look at the `express_demo` folder for examples. And look at the documentation!!
 
 Enjoy 🤖💻
 
