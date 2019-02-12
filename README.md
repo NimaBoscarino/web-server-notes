@@ -1,5 +1,9 @@
 # W2D2 - Test Review + INTRO TO SERVERS
 
+REPO LINK: https://github.com/NimaBoscarino/web-server-notes
+
+Note: I keep all of my lecture material on Github, under a big repo: https://github.com/NimaBoscarino/LighthouseLabs/
+
 Hey everyone! Thanks for sitting in on a pretty long lecture!
 
 1. [Express: Getting Started](https://expressjs.com/en/starter/installing.html) 
