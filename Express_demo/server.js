@@ -1,34 +1,55 @@
 const express = require('express')
-const app = express() // engine
-const port = 3000
+const app = express()
+const port = 8080
+app.set('view engine', 'ejs');
 
-app.set('view engine', 'ejs')
 
-app.get('/', function (req, res){
-  res.render('index')
+// something that happens between the request and the response
+app.use((req, res, next) => {
+  console.log('A NEW REQUEST HAS BEEN MADE')
+  next()
 })
 
-//URL PARAMETER -> GET /dogs/12, GET /dogs/15, GET /dogs/spot
-app.get('/users/:userName', function (req, res){
-  var templateVars = {
-    name: req.params.userName
+let dogs = [
+  {
+    name: 'Otis',
+    breed: 'Frenchie mix',
+    size: 'pretty teeny',
+    personality: 'feisty'
+  },
+  {
+    name: 'Huxley',
+    breed: 'Black lab',
+    size: 'too big',
+    personality: 'gregarious'
+  }
+]
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.get('/dogs', (req, res) => { 
+  let templateVars = {
+    dogs: dogs
+  }
+  res.render("dogs", templateVars)
+})
+
+app.get('/dogs/:someDogID', (req, res) => {
+  console.log(req.params)
+  // res.json(dogs[req.params.someDogID])
+  let templateVars = {
+    dog: dogs[req.params.someDogID]
   }
 
-  res.render('user', templateVars)
+  res.render("show_dog", templateVars)
+
 })
 
-//URL PARAMETER -> GET /dogs/12, GET /dogs/15, GET /dogs/spot
-app.get('/dogs/:dogName', function (req, res){
-  res.send('YOUR DOG IS CALLED ' + req.params.dogName)
-})
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
-app.get('/someJson', function (req, res){
-  res.json({
-    message: 'Hello world',
-    age: 1000
-  })
-})
 
-app.listen(port, function () {
-  console.log("Example app listening on port " + port + "!")
-})
+// app.get('/dogs', (req, res) => { 
+//   res.json(dogs)
+// })

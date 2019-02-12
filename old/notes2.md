@@ -87,6 +87,7 @@ Let's consider a Wikipedia article page. This page requires data (title, images,
     
 The template engine we're using is EJS. EJS lets us embed arbitrary Javascript expressions, and it also lets up easily pass in template variables into the render function. Take a look at the `views` folder in the `express_demo` project to see examples of using EJS.
 
+
 ## Aside:
 
 Someone asked a great question about how to make HTTP requests "on click" from the browser. That will be the topic of an entire lecture this week. For now, I'll leave this little snippet of code here. I don't recommend reading into this just yet, as you'll have plenty of time with this through assignments this week.
@@ -100,4 +101,3 @@ Someone asked a great question about how to make HTTP requests "on click" from t
 
 Also, look up `nodemon` 🕺
 
-Enjoy!
