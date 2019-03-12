@@ -14,14 +14,16 @@ Hey everyone! Thanks for sitting in on a pretty long lecture!
 6. [Anatomy of an HTTP Transaction](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/)
 7. [Using EJS with Express](https://github.com/mde/ejs/wiki/Using-EJS-with-Express)
 
-Today we got through a _bunch_ of stuff. We started off with a review of the assessment test. I mentioned that if you want to find more things like the test, you can take a look at the following resources:
+Today we got through a _bunch_ of stuff. 
+
+I didn't mention this in class, but if you want to find more things like the mock test from the weekend, you can take a look at the following resources:
 
 - Cracking the Coding Interview - really good book
 - Hacker Rank
 - Advent of Code - warning: this is hard
 - Project Euler - pretty mathy
 
-Then we hopped into the main topic for the day:
+Main topic for the day...
 
 ## WEB SERVERS:
 
@@ -91,9 +93,19 @@ Let's consider a Wikipedia article page. This page requires data (title, images,
     
 The template engine we're using is EJS. EJS lets us embed arbitrary Javascript expressions, and it also lets up easily pass in template variables into the render function. Take a look at the `views` folder in the `express_demo` project to see examples of using EJS.
 
+Here's a bit of a cheat sheet:
+
+```
+<h1><%= hello %></h1>
+
+<% for (let i = 0; i < 10; i++) { %>
+    <h1>WOOP WOOP</h1>
+<% } %>
+```
+
 ## Aside:
 
-Someone asked a great question about how to make HTTP requests "on click" from the browser. That will be the topic of an entire lecture this week. For now, I'll leave this little snippet of code here. I don't recommend reading into this just yet, as you'll have plenty of time with this through assignments this week.
+Someone in a previous lecture asked a great question about how to make HTTP requests "on click" from the browser. That will be the topic of an entire lecture this week. For now, I'll leave this little snippet of code here. I don't recommend reading into this just yet, as you'll have plenty of time with this through assignments this week.
 
 ```html
 <form action="/dogs" method="POST">
