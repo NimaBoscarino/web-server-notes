@@ -1,37 +1,80 @@
-# Week 2 Day 2!
+# W 2 D 2 - Lecture
 
-## Web Servers 101
+## Web Servers 101: Express
 
-Topics
-======
+- WHAT THE HECK IS A SERVER
+  - THE CODE I WRITE IN THE FIRST PART.... DON'T DO IT.
 
-1. Intro to Web Servers (Express-less demo)
-2. Intro to Express
-3. What is "middleware?"
-4. Intro to Server-side view templates with EJS
+- HOW DO WE MAKE A SERVER
+  - EXPRESS
 
-Let's start off with a bit of HTTP review.
 
-HTTP: Hypertext transfer protocol
+Vocab: 
 
-When we make an HTTP request we need a VERB + PATH
+How to make an HTTP client
 
-e.g GET /people
-e.g. POST /dogs {some data}
+HTTP - Hypertext transfer protocol
 
-POST /dogs {breed: 'German Shepherd'}
-GET /dogs?breed="German Shepherd"
+REQUESTS
+==========
+GET - THINGS
+POST
+PUT
+DELETE
 
-HTTP is a resource-based protocol
+RESPONSE
+=========
+- STATUS CODES - 200, 404
+- HEADERS
+  - OFTEN SOME DATA
 
-HTTP is a stateless protocol
-- there's no cache holding data
+
+GET /anotherDate?
+
+403 FORBIDDEN
+
+
+Vocab:
+
+HTTP IS A resource-based protocol
+
+- nouns.... 
+
+HTTP is a state-less protocol
+- it doesn't remember previous requests
   - everything the server needs should be sent with the request
 
-Github downloader project:
-- HTTP requests made to a black box (magic!)
-- today we open that box!
 
-This is *backend* development
+*GITHUB DOWNLOADER PROJECT*
 
-NODEMON - restarts the server
+- REQUESTS - client
+- RESPONSES - server
+
+HTTP requests to a black box (magic)
+Today we open up that black box!
+
+BACKEND DEVELOPMENT
+
+
+=== HTTP CREATESERVER IS GARBAGE
+
+## AN ABSTRACTION .... EXPRESS
+
+- LETS GET RID OF THAT STUFF (IF STATEMENTS)
+
+DECLARING
+
+- get request to /dogs, do this
+
+- post request to /dogs, do this other thing
+
+- get request to /kanye, do this
+
+
+EXPRESS IS GOOD FOR TWO THINGS
+
+1) Routing
+2) Middleware
+   1) ANYTHING that we need to happen between receiving the request and sending out the response
+
+ 

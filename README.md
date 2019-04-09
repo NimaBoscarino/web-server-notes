@@ -1,10 +1,12 @@
 # W2D2 - Test Review + INTRO TO SERVERS
 
+Hey everyone! Thanks for sitting in on a pretty long lecture!
+
 REPO LINK: https://github.com/NimaBoscarino/web-server-notes
 
 Note: I keep all of my lecture material on Github, under a big repo: https://github.com/NimaBoscarino/LighthouseLabs/
 
-Hey everyone! Thanks for sitting in on a pretty long lecture!
+See the examples in `express_server` and `http_server`. `cd` into those folders, run `npm i` and then run `node server.js`. You can see the pages in your browser on `http:localhost:8080`.
 
 1. [Express: Getting Started](https://expressjs.com/en/starter/installing.html) 
 2. [Routing with Express.js](https://expressjs.com/en/guide/routing.html) 
