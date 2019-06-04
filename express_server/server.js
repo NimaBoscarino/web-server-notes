@@ -1,75 +1,70 @@
+// bring in express
 var express = require('express')
-var morgan = require('morgan')
 
-var app = express()
-
-app.use(morgan('tiny'))
-
-app.set('view engine', 'ejs')
-
-var count = 0
-app.use(function (req, res, next) {
-  console.log('YET ANOTHER REQUEST!')
-  console.log(count)
-  count++
-
-  next()
-})
-
+// use the 'express' function to create a new app
+var app = express() // similar to createServer, but cleaner!
 var port = 8080
 
-var dogs = {
-  spot: {
-    name: 'Spot',
-    breed: 'Chihuahua'
+app.set('view engine', 'ejs');
+
+var animals = [
+  {
+    name: 'dog',
+    emoji: '🐕',
+    description: 'cool!',
+    sound: 'woof!'
   },
-  jujube: {
-    name: 'Jujube',
-    breed: 'Chiweenie'
-  }
-}
+  {
+    name: 'cat',
+    emoji: '🐈',
+    description: 'I like some cats',
+    sound: 'meow!'
+  },
+  {
+    name: 'horse',
+    emoji: '🐎',
+    description: 'I dont really like horse!',
+    sound: 'neigh!'
+  },    
+]
+// when someone makes a GET / request, respond with 'hello world'
+app.get('/', function (request, response) {
+  response.send('Hello World!')
+})
 
-// A route
-app.get('/', function(req, res) {
-  // console.log(request)
+app.post('/', function (request, response) {
+  response.send('You made a POST request')
+})
+
+app.get('/animals', function (request, response) {
+  // send JSON back
+  // response.json(animals)
 
   var templateVars = {
-    message: 'What up from Express!'
+    animals: animals
   }
 
-  res.render('index', templateVars)
+  response.render('animalsPage', templateVars)
 })
 
-app.get('/dogs', function (req, res) {
-  // res.json(dogs)
-  var templateVars = {
-    dogs: dogs
-  }
-
-  res.render('dogs', templateVars)
-})
-
-// GET /dogs/spot
-// GET /dogs/cthulhu
-// GET /dogs/1273182763
-app.get('/dogs/:name', function (req, res) {
-  var dogName = req.params.name
-  var dog = dogs[dogName]
-
-  // res.json(dog)
+app.get('/animals/:animalID', function (request, response) {
+  var animalId = request.params.animalID
 
   var templateVars = {
-    dog: dog
+    animal: animals[animalId]
   }
 
-  res.render('dog', templateVars)
+  response.render('animalPage', templateVars)
 })
 
-app.post('/dogs', function (req, res) {
-  res.send('creating dog!')
+app.get('/animals/:animalID/json', function (request, response) {
+  // console.log(request.params.animalIndex)
+  var animalID = request.params.animalID
+  response.json(animals[animalID])
 })
 
 
-app.listen(port, function () {
-  console.log('I am listening on', 8080)
+// start listening
+app.listen(port, function() {
+  console.log(`Example app listening on port ${port}!`)
 })

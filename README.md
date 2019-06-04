@@ -8,6 +8,8 @@ Note: I keep all of my lecture material on Github, under a big repo: https://git
 
 See the examples in `express_server` and `http_server`. `cd` into those folders, run `npm i` and then run `node server.js`. You can see the pages in your browser on `http:localhost:8080`.
 
+The notes that we wrote in class can be found in the `notes.md` file.
+
 1. [Express: Getting Started](https://expressjs.com/en/starter/installing.html) 
 2. [Routing with Express.js](https://expressjs.com/en/guide/routing.html) 
 3. [EJS templating](http://ejs.co/)

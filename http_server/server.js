@@ -1,39 +1,37 @@
 var http = require('http')
 var fs = require('fs')
+var PORT = 8080
 
-var homePage = fs.readFileSync("./index.html")
-var dogsPage = fs.readFileSync("./dogs.html")
+var kanyePage = fs.readFileSync('kanyePage.html')
 
-var server = http.createServer(function(request, response) {
-  console.log(request.method, request.url)
+// make server
+var server = http.createServer(function (request, response) {
+  console.log(request.method, request.url, request.headers)
 
-  if (request.method === 'GET') {
-    if (request.url === '/') {
+  if (request.url === '/kanye') {
+    if (request.method === 'GET') {
+      response.setHeader('Content-Type', 'text/html')
       response.statusCode = 200
-      response.setHeader("Content-Type", "text/html")
-      response.end(homePage)
-    } else if (request.url === '/dogs') {
-      response.statusCode = 200
-      response.setHeader("Content-Type", "text/html")
-      response.end(dogsPage)
+      response.end(kanyePage)
     } else {
-      response.statusCode = 200
-      let returnObject = {
-        hello: 'world',
-        weather: 'cold'
-      }
-      response.setHeader('Content-Type', "application/json")
-      response.setHeader('NimasHeader', "HahhaWhatUpYeeeezy")
-      response.end(JSON.stringify(returnObject))
+      response.statusCode = 401
+      response.end('NO! YOU CANNOT')
     }
-
   } else {
-    response.statusCode = 418
-    response.end('Other request!')
+    response.setHeader('Content-Type', 'application/json')
+    response.statusCode = 404
+    var jsonString = JSON.stringify({
+      message: 'Why would you want to see any other page?'
+    })    
+    response.end(jsonString)
   }
+
+})
+
+// start listening for requests
+server.listen(PORT, function () {
+  console.log('I AM LISTENING ON ' + PORT)
 })
 
 
-server.listen(8080, function() {
-  console.log('listening!')
-})
+// when you get a request, send back "Cool!"
