@@ -6,7 +6,13 @@ REPO LINK: https://github.com/NimaBoscarino/web-server-notes
 
 Note: I keep all of my lecture material on Github, under a big repo: https://github.com/NimaBoscarino/LighthouseLabs/
 
-See the examples in `express_server` and `http_server`. `cd` into those folders, run `npm i` and then run `node server.js`. You can see the pages in your browser on `http:localhost:8080`.
+For the code from the December 9th lecture look at the `december-9` folder.
+
+### NOTE!!!
+
+We did NOT get to using if-statements and loops in EJS during lecture. Please go to the bottom of these notes to see an explanation + cheat sheet of how that stuff works. It's not actually super difficult, but it definitely looks weird the first time you see it.
+
+See more examples in `express_server` and `http_server`. `cd` into those folders, run `npm i` and then run `node server.js`. You can see the pages in your browser on `http:localhost:8080`.
 
 The notes that we wrote in class can be found in the `notes.md` file.
 
@@ -20,7 +26,7 @@ The notes that we wrote in class can be found in the `notes.md` file.
 
 Today we got through a _bunch_ of stuff. 
 
-I didn't mention this in class, but if you want to find more things like the mock test from the weekend, you can take a look at the following resources:
+I didn't mention this in class, but if you want to find more things like the test from the weekend, you can take a look at the following resources:
 
 - Cracking the Coding Interview - really good book
 - Hacker Rank
